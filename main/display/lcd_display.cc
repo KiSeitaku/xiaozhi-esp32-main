@@ -23,7 +23,7 @@ SpiLcdDisplay::SpiLcdDisplay(esp_lcd_panel_io_handle_t panel_io, esp_lcd_panel_h
     height_ = height;
 
     // 初始化显示器为黑色
-    std::vector<uint16_t> buffer(width_, 0x0000); // 创建一个全黑的像素缓冲区
+    std::vector<uint16_t> buffer(width_, 0xffff); // 创建一个全黑的像素缓冲区
     for (int y = 0; y < height_; y++)
     {
         esp_lcd_panel_draw_bitmap(panel_, 0, y, width_, y + 1, buffer.data()); // 在每一行绘制黑色
